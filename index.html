@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"> 
+        <title>Aplicacion de Hotel</title>
+        <!-- Detecta el ancho del dispositivo Y lo Escala -->
+        <meta name="viewport" content="width-device-width, initial-scale=1">
+        <!-- Agregar librerias y Estilos -->
+        <link href="css/jquery.mobile-1.4.4.min.css" rel="stylesheet">
+        <link href="css/jquery.mobile.theme-1.4.4.min.css" rel="stylesheet">
+    </head>
+    
+    <body>
+    
+    
+  
+        
+        <div data-role="page" id="home">
+
+            <div data-role="header" data-theme="b">
+                <h1>Hotel Apps</h1>
+            </div><!-- /header -->
+
+            <div role="main" class="ui-content">
+                <!-- Data-inset funciona para generar esquinas redondeadas en el list -->
+                <ul data-role="listview" data-inset="true">
+                    <li><a href="#nr1">Crear Reserva</a></li>
+                    <li><a href="#historial">Ver Historial</a></li>
+                    <li><a href="#priv">Privacidad</a></li>
+                </ul>
+            </div><!-- /content -->
+
+            <div data-role="footer" data-position="fixed" data-theme="b">
+                <span style="font-size:10pt;">Todos los Derechos Reservados ®</span>
+                <a href="#nosotros" data-transition="slideup" data-icon="info">Info</a>
+            </div><!-- /footer -->
+        </div><!-- /page -->
+        
+        
+        <!-- Aca estamos creando la pagina NOSOTROS -->
+          <div data-role="page" id="nosotros">
+
+            <div data-role="header" data-theme="b">
+                <h1>Nosotros</h1>
+                <!-- Detectar la pagina anteriormente o mandarla a home -->
+                <!-- Esta parte la manda al home y con el data-rel manda a la anterior -->
+                <a href="#home" data-rel="back">Atras</a>
+            </div><!-- /header -->
+
+            <div role="main" class="ui-content">
+                <!-- Data-inset funciona para generar esquinas redondeadas en el list -->
+               <p style="text-align: center;">Desarrollado por: <br/> Raziel Rodriguez Zagal</p>
+            </div><!-- /content -->
+
+            <div data-role="footer" data-position="fixed" data-theme="b">
+                
+            </div><!-- /footer -->
+        </div><!-- /page -->
+        
+        
+         <!-- Aca estamos creando la pagina NOSOTROS -->
+          <div data-role="page" id="priv">
+
+            <div data-role="header" data-theme="b">
+                <h1 data-theme="b">Aviso de Privacidad</h1>
+                <!-- Detectar la pagina anteriormente o mandarla a home -->
+                <!-- Esta parte la manda al home y con el data-rel manda a la anterior -->
+                <a href="#home" data-rel="back">Atras</a>
+            </div><!-- /header -->
+
+            <div role="main" class="ui-content">
+                <!-- Data-inset funciona para generar esquinas redondeadas en el list -->
+               <p style="text-align: center;">App Para crear reservaciones para hoteles <br/><br/>Desarrollado por: <br/> Raziel Rodriguez Zagal</p>
+             
+            </div><!-- /content -->
+
+            <div data-role="footer" data-position="fixed" data-theme="b">
+                
+            </div><!-- /footer -->
+        </div><!-- /page -->
+        
+        
+        <!-- Vamos a crear la pagina de crear reserva -->
+        
+         <div data-role="page" id="nr1">
+
+            <div data-role="header" data-theme="b">
+                <h1>Nueva Reserva</h1>
+                <a href="#home" data-rel="back">Atras</a>
+            </div><!-- /header -->
+
+            <div role="main" class="ui-content">
+                <!-- Data-inset funciona para generar esquinas redondeadas en el list -->
+                <ul data-role="listview" data-inset="true">
+                    <li data-theme="b">Seleccione Tipo de Habitación</li>
+                    <li><a href="#nr2">Sencilla</a></li>
+                    <li><a href="#nr2">Doble</a></li>
+                    <li><a href="#nr2">Jr. Suite</a></li>
+                </ul>
+            </div><!-- /content -->
+
+            <div data-role="footer" data-position="fixed" data-theme="b">
+                <div data-role="navbar" data-theme="b">
+                    <ul>
+                        <li><a href="#" data-rel="back" style="background-color:#aa0000;"class="ui-btn-active">Cancelar</a></li>
+                        <li><a href="#">Siguiente</a></li>
+                    </ul>
+                </div><!-- /navbar -->
+            </div><!-- /footer -->
+        </div><!-- /page -->
+        <!-- Fin de la pagina de crear reserva -->
+        
+        <div data-role="page" id="nr2">
+
+            <div data-role="header" data-theme="b">
+                <h1>Nueva Reserva</h1>
+                <a href="#home" data-rel="back">Atras</a>
+            </div><!-- /header -->
+
+            <div role="main" class="ui-content">
+                <!-- Data-inset funciona para generar esquinas redondeadas en el list -->
+                <ul data-role="listview" data-inset="true">
+                    <li data-theme="b">Datos de Reserva</li>
+                    <li>Habitaciones:</li>
+                        <select id="nrHab">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    <li>Personas:</li>
+                         <select id="nrPer">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    <li>Dias:</li>
+                         <select id="nrDia">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                </ul>
+            </div><!-- /content -->
+
+            <div data-role="footer" data-position="fixed" data-theme="b">
+                <div data-role="navbar" data-theme="b">
+                    <ul>
+                        <li><a href="#" data-rel="back" style="background-color:#aa0000;"class="ui-btn-active">Atras</a></li>
+                        <li><a href="#">Reservar</a></li>
+                    </ul>
+                </div><!-- /navbar -->
+            </div><!-- /footer -->
+        </div><!-- /page -->
+        
+        
+          <div data-role="page" id="historial">
+
+            <div data-role="header" data-theme="b">
+                <h1>Historial</h1>
+                <a href="#home" data-rel="back">Atras</a>
+            </div><!-- /header -->
+
+            <div role="main" class="ui-content">
+                <!-- Data-inset funciona para generar esquinas redondeadas en el list -->
+                <table>
+                    <thead>
+                        <th>Fecha</th>
+                        <th>Tipo de Habitación</th>
+                    </thead>
+                    <tbody>
+                    
+                    </tbody>
+                </table>
+            </div><!-- /content -->
+
+            <div data-role="footer" data-position="fixed" data-theme="b">
+                <div data-role="navbar" data-theme="b">
+                    <ul>
+                        <li><a href="#nosotros" class="ui-btn-active" data-icon="info">Info</a></li>
+                        <li><a href="#priv" data-icon="eye">Privacidad</a></li>
+                        <li><a href="#nr1" data-icon="plus">Otra Reserva</a></li>
+                    </ul>
+                </div><!-- /navbar -->
+            </div><!-- /footer -->
+        </div><!-- /page -->
+        
+        
+        <!-- Pagina de registro -->
+        
+         <!-- Vamos a crear la pagina de crear reserva -->
+        
+         <div data-role="page" id="reg">
+
+            <div data-role="header" data-theme="b">
+                <h1>Registro</h1>
+                
+            </div><!-- /header -->
+
+            <div role="main" class="ui-content">
+                <!-- Data-inset funciona para generar esquinas redondeadas en el list -->
+                <ul data-role="listview" data-inset="true">
+                   <li data-theme="b">Datos de Usuario</li>
+                    <li><input type="text" placeholder="Nombre" id="regName"> </li>
+                    <li><input type="email" placeholder="Correo Electronico" id="regMail"> </li>
+                    <li><input type="tel" placeholder="Telefono" id="regTel"> </li>
+                    <li><a href="#" id="regTake">Tomar Foto</a>  </li>
+                    <li id="foto"></li>
+                    <li><a href="#" id="regSend" data-role="button" style="text-align: center;">Registrar</a>  </li>
+                    
+                </ul>
+            </div><!-- /content -->
+
+            <div data-role="footer" data-position="fixed" data-theme="b">
+                <div data-role="navbar" data-theme="b">
+                    <ul>
+                        <li><a href="#" data-rel="back" style="background-color:#aa0000;"class="ui-btn-active">Cancelar</a></li>
+                        <li><a href="#">Siguiente</a></li>
+                    </ul>
+                </div><!-- /navbar -->
+            </div><!-- /footer -->
+        </div><!-- /page -->
+
+      <!-- Librerias JS -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery.mobile-1.4.4.min.js"></script>
+        
+        
+        
+    </body>
+</html>
