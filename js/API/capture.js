@@ -12,5 +12,5 @@ var myCapture = {
     },
     fotoError: function(err){
       navigator.notification.alert('Error: '+err.code,null,'Error','Aceptar');
-    };
+    }
 };
