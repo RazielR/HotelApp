@@ -8,7 +8,9 @@ var fn = {
         var x = false;
             if(!x)
             window.location.href = '#reg';
-        $('#regSend').click(fn.registro);
+        // tap es como un clic de los mobiles
+        $('#regTake').tap(myCapture.tomarFoto);
+        $('#regSend').tap(fn.registro);
     },
     registro: function(){
         //Tomamos los campos y con el .val sacamos el contenido
@@ -19,7 +21,7 @@ var fn = {
          // enviar datos al servidor
             navigator.notification.beep(2);
         }else{
-           navigator.notification.alert("Todos los campos son requeridos",null,'Error','Aceptar');
+           navigator.notification.alert('Todos los campos son requeridos',null,'Error','Aceptar');
         }
         
     }
