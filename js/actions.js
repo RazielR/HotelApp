@@ -7,7 +7,7 @@ var fn = {
     device: function(){
         var x = false;
         if(!x)
-            windows.location.href = '#reg';
+            window.location.href = '#reg';
         $('#regSend').click(fn.registro);
     },
     registro: function(){
