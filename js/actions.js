@@ -17,13 +17,24 @@ var fn = {
         var nombre = $('#regName').val();
         var mail = $('#regMail').val();
         var tel = $('#regTel').val();
-        if(nombre != '' && mail != '' && tel != ''){
+        var foto = $('#regTake').attre('rel');
+        if(nombre != '' && mail != '' && tel != '' && foto !='' && foto != undefined){
          // enviar datos al servidor
-            navigator.notification.beep(2);
+            fn.enviarRegistro(nombre, mail, tel, foto);
         }else{
            navigator.notification.alert('Todos los campos son requeridos',null,'Error','Aceptar');
         }
         
+    },
+    enviarRegistro: function(nom, mail, tel , foto){
+        $.ajax({
+          type: "POST",
+          url: "http://carlos.igitsoft.com/apps/test.php",
+          data: { nom: nom, mail: tel, tel: tel }
+        }).done(function( respuesta ) {
+                if (respuesta=='1')
+                    myTransfer.ft.upload(foto,"http://carlos.igitsoft.com/apps/test.php",myTransfer.subido,myTransfer.error,myTransfer.opciones,true);
+        });
     }
 };
 
