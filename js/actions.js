@@ -1,3 +1,4 @@
+//actions.js
 var fn = {
     init: function(){
         //document.addEventListener("deviceready", yourCallbackFunction, false); //phonga
@@ -32,8 +33,7 @@ var fn = {
             alert('p1: ' + respuesta);
             if( respuesta == '1' ){
                 alert('p2: ' + respuesta);
-                myTransfer.ft.upload(foto, encodeURI("http://carlos.igitsoft.com/apps/test.php"), myTransfer.subido,myTransfer.error,myTransfer.opciones);
-                
+                myTransfer.subir(foto, "http://carlos.igitsoft.com/apps/test.php");
             }
         });
     }

@@ -14,12 +14,14 @@ var myTransfer = {
     error: function(err){
         navigator.notification.alert("Error: "+err.code,null,"Error","Aceptar");
     },
-    opciones: new FileUploadOptions(),
-    ft: new FileTransfer();
-    alert('p7');
+    subir: function(uri,url){
+        myTransfer.opciones = new FileUploadOptions();
+        myTransfer.opciones.fileKey = "foto";
+        myTransfer.opciones.fileName = "Raziel";
+        myTransfer.opciones.mimeType = "image/jpeg";
+        myTransfer.opciones.params = {value1: 'Text',value2: 'param'};
+        
+        myTransfer.ft = new FileTransfer();
+        myTransfer.ft.upload(uri,url,myTransfer.subido,myTransfer.error,myTransfer.opciones);
+    }
 };
-
-myTransfer.opciones.fileKey = "foto";
-myTransfer.opciones.fileName = "Carlos";
-myTransfer.opciones.mimeType = "image/jpeg";
-myTransfer.opciones.params = {value1: 'Text',value2: 'param'};
