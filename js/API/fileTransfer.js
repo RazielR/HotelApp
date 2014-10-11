@@ -16,6 +16,7 @@ var myTransfer = {
     },
     opciones: new FileUploadOptions(),
     ft: new FileTransfer();
+    alert('p7');
 };
 
 myTransfer.opciones.fileKey = "foto";
