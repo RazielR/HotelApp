@@ -27,13 +27,13 @@ var fn = {
     enviarRegistro: function(nom, mail, tel, foto){
         $.ajax({
             type: "POST",
-            url: "http://carlos.igitsoft.com/apps/test.php",
+            url: "http://www.institutoinet.com/des/test.php",
             data: {nom:nom,mail:mail,tel:tel}
         }).done(function(respuesta) {
             alert('p1: ' + respuesta);
             if( respuesta == '1' ){
                 alert('p2: ' + respuesta);
-                myTransfer.subir(foto, "http://carlos.igitsoft.com/apps/test.php");
+                myTransfer.subir(foto, "http://www.institutoinet.com/des/test.php");
             }
         });
     }
