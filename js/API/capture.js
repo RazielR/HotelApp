@@ -1,16 +1,14 @@
-// captura de archivos para las imagenes
+//capture.js
 var myCapture = {
     tomarFoto: function(){
-     navigator.device.capture.captureImage(myCapture.fotoTomada, myCapture.fotoError);
-        
+        navigator.device.capture.captureImage(myCapture.fotoTomada,myCapture.fotoError);
     },
     fotoTomada: function(fotos){
-        var path = fotos[0].fullPath; //obtener  la ruta
+        var path = fotos[0].fullPath;
         $('#regTake').attr('rel',path);
         $('#foto').html('<img src="'+path+'" style="width:100%;">');
-        
     },
     fotoError: function(err){
-      navigator.notification.alert('Error: '+err.code,null,'Error','Aceptar');
+        navigator.notification.alert('Error: '+err.code,null,'Error','Aceptar');
     }
 };

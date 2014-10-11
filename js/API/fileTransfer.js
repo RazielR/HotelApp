@@ -1,15 +1,14 @@
-// file transfer.js
+//fileTransfer.js
 var myTransfer = {
     subido: function(r){
-        //Respuesta Satisfactoria
-          alert('p3');
+        alert('p3: ' + r.response);
         if(r.response == '1'){
-            alert('p4: '+r.response);
-            navigator.notification.alert("Se ha registrado corrrectamente",function(){
-            windows.location.href = '#home';
-                //asignar registro local
-                 alert('p5');
-            },"Registro Correcto","Aceptar");
+            alert('p4');
+            navigator.notification.alert("Se ha registrado correctamente",function(){
+                window.location.href = '#home';
+                //Asignar Registro Local
+                alert('p5');
+            },"Felicidades","Aceptar");
         }
     },
     error: function(err){
@@ -20,6 +19,6 @@ var myTransfer = {
 };
 
 myTransfer.opciones.fileKey = "foto";
-myTransfer.opciones.fileName = "Raziel";
-myTransfer.opciones.mimeType = "image/jpg";
-myTransfer.opciones.params = {value1: 'Text', value2: 'param'};
+myTransfer.opciones.fileName = "Carlos";
+myTransfer.opciones.mimeType = "image/jpeg";
+myTransfer.opciones.params = {value1: 'Text',value2: 'param'};
