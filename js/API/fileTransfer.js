@@ -2,10 +2,13 @@
 var myTransfer = {
     subido: function(r){
         //Respuesta Satisfactoria
+          alert('p3');
         if(r.response == '1'){
+            alert('p4: '+r.response);
             navigator.notification.alert("Se ha registrado corrrectamente",function(){
             windows.location.href = '#home';
                 //asignar registro local
+                 alert('p5');
             },"Registro Correcto","Aceptar");
         }
     },
