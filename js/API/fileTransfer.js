@@ -1,13 +1,11 @@
 //fileTransfer.js
 var myTransfer = {
     subido: function(r){
-        alert('p3: ' + r.response);
         if(r.response == '1'){
-            alert('p4');
+            $.mobile.loading( 'hide' );
             navigator.notification.alert("Se ha registrado correctamente",function(){
                 window.location.href = '#home';
-                //Asignar Registro Local
-                alert('p5');
+                fn.storage.setItem('registro',1);//Guarda localmente un dato
             },"Felicidades","Aceptar");
         }
     },
@@ -17,7 +15,7 @@ var myTransfer = {
     subir: function(uri,url){
         myTransfer.opciones = new FileUploadOptions();
         myTransfer.opciones.fileKey = "foto";
-        myTransfer.opciones.fileName = "Raziel";
+        myTransfer.opciones.fileName = "Carlos";
         myTransfer.opciones.mimeType = "image/jpeg";
         myTransfer.opciones.params = {value1: 'Text',value2: 'param'};
         

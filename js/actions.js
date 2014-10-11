@@ -6,11 +6,13 @@ var fn = {
         //$('#regSend').click(); //Producir un click
     },
     device: function(){
-        var x = false;
-        if(!x)
+        if(!fn.estaRegistrado)
             window.location.href = '#reg';
         $('#regTake').tap(myCapture.tomarFoto);
         $('#regSend').tap(fn.registro);
+        $('#showStorage').tap(function(){
+            alert(fn.storage.getItem('registro'));
+        });
     },
     registro: function(){
         var nombre = $('#regName').val();
@@ -25,17 +27,23 @@ var fn = {
         } 
     },
     enviarRegistro: function(nom, mail, tel, foto){
+        $.mobile.loading( 'show' );
         $.ajax({
             type: "POST",
-            url: "http://www.institutoinet.com/des/test.php",
+            url: "http://institutoinet.com/des/test.php",
             data: {nom:nom,mail:mail,tel:tel}
-        }).done(function(respuesta) {
-            alert('p1: ' + respuesta);
+        }).done(function(respuesta){
             if( respuesta == '1' ){
-                alert('p2: ' + respuesta);
-                myTransfer.subir(foto, "http://www.institutoinet.com/des/test.php");
+                myTransfer.subir(foto, "http://institutoinet.com/des/test.php");
             }
         });
+    },
+    storage: window.localStorage,
+    estaRegistrado: function(){
+        if(fn.storage.getItem('registro') == 1)
+            return true;
+        else
+            return false;
     }
 };
 $(fn.init);
