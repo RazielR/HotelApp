@@ -13,6 +13,10 @@ var fn = {
         $('#showStorage').tap(function(){
             alert(fn.storage.getItem('registro'));
         });
+        
+        $('#nr1 ul[data-role=listview] li').tap(fn.selectTH);
+        $('#nr1 div[data-role=navbar] ul li:eq(1)').tap(fn.nrNext);
+        $('#nr2 div[data-role=navbar] ul li:eq(1)').tap(fn.reservar);
     },
     registro: function(){
         var nombre = $('#regName').val();
@@ -30,11 +34,23 @@ var fn = {
         $.mobile.loading( 'show' );
         $.ajax({
             type: "POST",
-            url: "http://institutoinet.com/des/test.php",
+            url: "http://carlos.igitsoft.com/apps/test.php",
             data: {nom:nom,mail:mail,tel:tel}
         }).done(function(respuesta){
             if( respuesta == '1' ){
-                myTransfer.subir(foto, "http://institutoinet.com/des/test.php");
+                myTransfer.subir(foto, "http://carlos.igitsoft.com/apps/test.php");
+            }
+        });
+    },
+    enviarReserva: function(th, ha, pr, di){
+        $.mobile.loading( 'show' );
+        $.ajax({
+            type: "POST",
+            url: "http://carlos.igitsoft.com/apps/test.php",
+            data: {tipo:th,habitaciones:ha,personas:pr,dias:di}
+        }).done(function(respuesta){
+            if( respuesta == '1' ){
+                db.agregarHistorial(th,ha,pr,di);
             }
         });
     },
@@ -44,6 +60,39 @@ var fn = {
             return true;
         else
             return false;
+    },
+    selectTH: function(){
+        if($(this).index()>0){
+            $('#nr1 ul[data-role=listview] li a').css('background-color','');
+            $(this).find('a').css('background-color','#a9a9a9');
+            $('#nr1').attr('th',$(this).index());
+        }
+    },
+    nrNext: function(){
+        if($('#nr1').attr('th') != undefined && $('#nr1').attr('th') != ''){
+            window.location.href = "#nr2";
+        }else{
+            alert('Es necesario seleccionar un tipo de habitación');
+        }
+    },
+    reservar: function(){
+        var th = $('#nr1').attr('th');
+        var ha = $('#nrHab').val();
+        var pr = $('#nrPer').val();
+        var di = $('#nrDia').val();
+        
+        if(th != '' && ha != '' && pr != '' && di != ''){
+            if(connection.estaConectado()){
+                //Enviar Reserva a servidor
+                fn.enviarReserva(th,ha,pr,di);
+            }else{
+                //Guardar los datos hasta conexión
+                $.mobile.loading( 'show' );
+                db.agregarPendientes(th,ha,pr,di);
+            }
+        }else{
+            alert('Todos los campos son requeridos');
+        }
     }
 };
 $(fn.init);
